@@ -15,7 +15,12 @@ class MoviesController < ApplicationController
     end
 
     def index 
-        
+
+    end
+
+    def show 
+        @movie = Movie.find_by_id(params[:id])
+        redirect_to movies_path if !@movie  
     end
 
     private 
