@@ -14,6 +14,10 @@ class MoviesController < ApplicationController
         end
     end
 
+    def index 
+        
+    end
+
     private 
 
     def movie_params
