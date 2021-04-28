@@ -17,4 +17,11 @@ class ReviewsController < ApplicationController
             render :new
         end
     end
+
+    private 
+
+    def review_params
+        params.require(:review).permit(:content, :rating, :movie_id)
+    end
+
 end
