@@ -4,5 +4,9 @@ class MoviesController < ApplicationController
     def new
         @movie = Movie.new
     end
+
+    def create 
+        binding.pry
+    end
     
 end
