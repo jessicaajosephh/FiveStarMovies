@@ -1,0 +1,7 @@
+<h1>All Reviews</h1>
+
+<ul>
+<% @reviews.each do |r|%>
+  <li><%= r.user.username%> says "<%= r.content%>" about this post: <strong><%= link_to c.post.title, post_path(c.post_id) %></strong></li>
+<% end %>
+</ul>
