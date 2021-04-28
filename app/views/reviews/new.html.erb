@@ -1,0 +1,11 @@
+<h1>New Review!</h1>
+
+<%= form_for(@review) do |f|%>
+  <%= f.label :movie %>
+  <%= f.collection_select :movie_id, Post.all, :id, :title %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+  <%= f.submit %>
+<% end %>
