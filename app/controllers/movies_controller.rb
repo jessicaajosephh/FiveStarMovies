@@ -23,6 +23,10 @@ class MoviesController < ApplicationController
         redirect_to movies_path if !@movie  
     end
 
+    def edit 
+        
+    end
+
     private 
 
     def movie_params
