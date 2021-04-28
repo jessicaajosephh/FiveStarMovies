@@ -16,6 +16,7 @@
     <% if logged_in? %>
     <%= link_to "Add a Movie", new_movie_path %> |
     <%= link_to "All Movies", movies_path %> |
+    <%= link_to "Add a Review", new_review_path %> |
     <%= link_to "Logout", logout_path, method:"delete" %>
     <% else %>
     <%= link_to "Sign Up", signup_path %> |
