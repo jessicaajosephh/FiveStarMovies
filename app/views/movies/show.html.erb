@@ -1,2 +1,4 @@
 <h1><%=@movie.title%></h1>
-<h2><%=link_to @movie.user.username, user_path(@movie.user)%> </h2>
+<h2>By: <%=@movie.user.username%> </h2>
+
+<p><%= @movie.description%></p>
