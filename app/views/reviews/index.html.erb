@@ -2,6 +2,6 @@
 
 <ul>
 <% @reviews.each do |r|%>
-  <li><%= r.user.username%> says "<%= r.content%>" about this post: <strong><%= link_to c.post.title, post_path(c.post_id) %></strong></li>
+  <li><%= r.user.username%> says "<%= r.content%>" about this review: <strong><%= link_to r.movie.title, movie_path(r.movie_id) %></strong></li>
 <% end %>
 </ul>

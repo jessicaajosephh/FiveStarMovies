@@ -1,2 +1,9 @@
 <h1><%=@movie.title%></h1>
 <h2><%=@movie.user.username%> </h2>
+
+<div><%= @movie.description%></div>
+
+<h4>Reviews:</h4>
+<% @movie.reviews.each do |r|%>
+  <li><strong><%= r.user.username%></strong> says "<%= link_to r.content, review_path(r)%>" </li>
+<% end %>
