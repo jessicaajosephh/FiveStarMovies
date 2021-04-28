@@ -1,0 +1,4 @@
+<h2><%= @comment.content%> - <%= @review.user.username%></h2>
+
+
+<h4>Read the review here: <%= link_to @review.movie.title, movie_path(@review.movie_id) %></h4>
