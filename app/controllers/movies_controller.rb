@@ -7,6 +7,7 @@ class MoviesController < ApplicationController
 
     def create 
         @movie = current_user.movies.build(movie_params)
+        #binding.pry
         if @movie.save 
             redirect_to movies_path
         else
