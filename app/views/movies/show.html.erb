@@ -3,6 +3,8 @@
 
 <div><%= @movie.description%></div>
 
+<p><%= link_to 'See all reviews', movie_reviews_path(@movie) %></p>
+
 <h4>Reviews:</h4>
 <% @movie.reviews.each do |r|%>
   <li><strong><%= r.user.username%></strong> says "<%= link_to r.content, review_path(r)%>" </li>
