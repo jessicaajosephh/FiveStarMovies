@@ -11,7 +11,12 @@ class ReviewsController < ApplicationController
     end
 
     def new 
-        @review = Review.new
+        if params[:movie_id] && @movie = Movie.find_by_id(params[:movie_id])
+            @review = @movie.reviews.build
+        else
+            @error = "That movie doesn't exist in our database yet!" if params[:movie_id]
+            @review = Review.new
+        end
     end
 
     def create 
