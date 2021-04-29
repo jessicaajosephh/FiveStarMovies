@@ -1,5 +1,5 @@
-<% if @movie %>
-<h1>New Review for <%= @movie.title %></h1>
+<% if @review.movie %>
+<h1>New Review for <%= @review.movie.title %></h1>
 <% else %>
 <h1>New Review!</h1>
 <% end %>
@@ -17,8 +17,8 @@
 <% end %>
 
 
-<%= form_for([@post, @review]) do |f|%>
-<% if !@movie %>
+<%= form_for([@review.movie, @review]) do |f|%>
+<% if !@review.movie %>
   <%= f.label :movie %>
   <%= f.collection_select :movie_id, Movie.all, :id, :title %>
 <% else %>
