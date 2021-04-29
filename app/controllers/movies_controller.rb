@@ -16,7 +16,12 @@ class MoviesController < ApplicationController
     end
 
     def index 
-        @movies = Movie.all
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @movies = @user.movies
+        else
+            @error = "That user doesn't exist in our database!" if params[:user_id]
+            @movies = Movie.all
+        end
     end
 
     def show 
