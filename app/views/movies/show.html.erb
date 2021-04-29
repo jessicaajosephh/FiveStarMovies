@@ -8,5 +8,5 @@
 
 <h4>Reviews:</h4>
 <% @movie.reviews.each do |r|%>
-  <li><strong><%= r.user.username%></strong> says "<%= link_to r.content, review_path(r)%>" </li>
+  <li><strong><%= r.user.username%></strong> says "<%= link_to r.content, movie_review_path(@movie, r)%>" </li>
 <% end %>
