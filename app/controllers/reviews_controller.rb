@@ -2,7 +2,12 @@ class ReviewsController < ApplicationController
     before_action :redirect_if_not_logged_in 
 
     def index 
-        @reviews = Review.all 
+        if params[:movie_id] && @movie = Movie.find_by_id(params[:movie_id])
+            @reviews = @movie.reviews
+        else
+            @error = "That movie doesn't exist in our database yet!" if params[:movie_id]
+            @reviews = Review.all 
+        end
     end
 
     def new 
