@@ -4,6 +4,18 @@
 <h1>New Review!</h1>
 <% end %>
 
+<% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+    <ul>
+      <% @review.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 
 <%= form_for([@post, @review]) do |f|%>
 <% if !@movie %>
