@@ -21,6 +21,8 @@
 <% if !@movie %>
   <%= f.label :movie %>
   <%= f.collection_select :movie_id, Movie.all, :id, :title %>
+<% else %>
+  <%= f.hidden_field :movie_id %>
 <% end %>
   <%= f.label :content %>
   <%= f.text_field :content %>
