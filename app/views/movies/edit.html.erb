@@ -1,0 +1,36 @@
+<h1> Edit <%= @movie.title %>!</h1>
+
+<%= form_for(@movie) do |f| %>
+
+  <%= f.label "Choose a genre:" %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true%>
+
+  <p>Or create a new genre:
+  <%= f.fields_for :genre do |g| %>
+    <%= g.text_field :name %>
+  <% end %>
+  </p>
+  <br>
+  <br>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <br>
+  <br>
+  <%= f.label :movie_length %>
+  <%= f.text_field :movie_length %>
+  <br>
+  <br>
+  <%= f.label :director %>
+  <%= f.text_field :director %>
+  <br>
+  <br>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+  <br>
+  <br>
+  <%= f.submit %>
+<% end %>
