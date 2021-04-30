@@ -1,7 +1,11 @@
 <h1><%=@movie.title%></h1>
-<h2><%=@movie.user.username%> </h2>
+<h4>Published by: <%=@movie.user.username%> </h4>
+<h3>Genre: <%= @movie.genre.try(:name) %></h3>
 
-<div><%= @movie.description%></div>
+<div>Movie Description: <%= @movie.description%></div>
+<div>Movie Length: <%= @movie.movie_length%></div>
+<div>Director: <%= @movie.director%></div>
+<div>Rating: <%= @movie.rating%></div>
 
 <p><%= link_to 'See all reviews', movie_reviews_path(@movie) %></p>
 <p><%= link_to 'Add a review', new_movie_review_path(@movie) %></p>
