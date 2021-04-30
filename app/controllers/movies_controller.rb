@@ -22,10 +22,10 @@ class MoviesController < ApplicationController
 
     def index 
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
-            @movies = @user.movies
+            @movies = @user.movies.alpha 
         else
             @error = "That user doesn't exist in our database!" if params[:user_id]
-            @movies = Movie.all
+            @movies = Movie.all.alpha 
         end
     end
 
