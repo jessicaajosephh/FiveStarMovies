@@ -1,6 +1,7 @@
 <h1><%=@movie.title%></h1>
 <h4>Published by: <%=@movie.user.username%> </h4>
 <h3>Genre: <%= @movie.genre.try(:name) %></h3>
+<h4><%= link_to "Edit Movie", edit_movie_path(@movie)%>
 
 <div>Movie Description: <%= @movie.description%></div>
 <div>Movie Length: <%= @movie.movie_length%></div>
