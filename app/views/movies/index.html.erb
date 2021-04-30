@@ -2,6 +2,6 @@
 
 <ul>
 <% @movies.each do |m|%>
-  <li><%= link_to m.title, movie_path(m) %></li>
+  <li><%= link_to m.title, movie_path(m) %> - <%= m.rating%> </li>
 <% end %>
 </ul>
