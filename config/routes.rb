@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#destroy'
 
-  get '/auth/:provider/callback', to: 'sessions#omniuth'
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
 
   resources :genres
   resources :reviews
