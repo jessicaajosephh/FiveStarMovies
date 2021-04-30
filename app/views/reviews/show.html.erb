@@ -1,4 +1,8 @@
 <h2><%= @review.content%> - <%= @review.user.username%></h2>
 
+<% if @review.user == current_user %>
+  <%= link_to "Edit Review", edit_review_path(@review)%>
+<% end %>
+
 
 <h4>Read the review here: <%= link_to @review.movie.title, movie_path(@review.movie_id) %></h4>
