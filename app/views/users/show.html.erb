@@ -1,5 +1,14 @@
 <h1> Welcome <%= @user.username%> </h1>
 
-<%# <%= form_tag("/logout", method:'delete') do %>
-  <%# submit_tag "Logout" %>
-<%# end %>
+<% if @user.movies.empty? %>
+  <h2> You haven't created any movie reviews yet, create one <%= link_to "here", new_movie_path%> now!</h2>
+<% else %>
+
+<h2> Your Movies: </h2>
+<ul>
+  <% @user.movies.each do |m| %>
+    <li><%= link_to m.title, movie_path(m) %></li>
+  <% end %>
+</ul>
+
+<% end %>
