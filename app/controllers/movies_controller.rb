@@ -40,6 +40,16 @@ class MoviesController < ApplicationController
         @movie.build_genre if !@movie.genre
     end
 
+    def update 
+        @movie = Movie.find_by(id: params[:id])
+        redirect_to movies_path if !@movie
+        if @movie.update(movie_params)
+            redirect_to movie_path(@movie)
+        else
+            render :edit 
+        end
+    end
+
     private 
 
     def movie_params
