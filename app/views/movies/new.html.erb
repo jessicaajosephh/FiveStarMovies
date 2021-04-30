@@ -1,5 +1,7 @@
 <h1> New Movie </h1>
 
+<%= render partial: "layouts/errors", locals: {object: @movie}%>
+
 <%= form_for(@movie) do |f| %>
 
   <%= f.label "Choose a genre:" %>
