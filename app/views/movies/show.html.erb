@@ -1,7 +1,9 @@
 <h1><%=@movie.title%></h1>
 <h4>Published by: <%=@movie.user.username%> </h4>
 <h3>Genre: <%= @movie.genre.try(:name) %></h3>
-<h4><%= link_to "Edit Movie", edit_movie_path(@movie)%>
+<% if @movie.user == current_user %>
+  <h4><%= link_to "Edit Movie", edit_movie_path(@movie)%>
+<% end %>
 
 <div>Movie Description: <%= @movie.description%></div>
 <div>Movie Length: <%= @movie.movie_length%></div>
@@ -9,9 +11,10 @@
 <div>Rating: <%= @movie.rating%></div>
 
 <p><%= link_to 'See all reviews', movie_reviews_path(@movie) %></p>
+<% if !@movie.reviews.empty? %>
 <p><%= link_to 'Add a review', new_movie_review_path(@movie) %></p>
-
-<h4>Reviews:</h4>
-<% @movie.reviews.each do |r|%>
-  <li><strong><%= r.user.username%></strong> says "<%= link_to r.content, movie_review_path(@movie, r)%>" and gave it a rating of <%= r.rating %></li>
+<h4> Most recent Reviews:</h4>
+  <% @movie.reviews.order(updated_at: :desc).limit(5).each do |r|%>
+  <li><strong><%= r.user.username%></strong> says "<%= link_to r.content, movie_review_path(@movie, r)%>" and gave it a rating of <%= r.rating %> at <%= r.updated_at.strftime("%I:%M %p on %m/%d/%Y")%></li>
+  <% end %>
 <% end %>
