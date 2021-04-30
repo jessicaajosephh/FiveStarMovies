@@ -35,7 +35,9 @@ class MoviesController < ApplicationController
     end
 
     def edit 
-        
+        @movie = Movie.find_by_id(params[:id])
+        redirect_to movies_path if !@movie 
+        @movie.build_genre if !@movie.genre
     end
 
     private 
