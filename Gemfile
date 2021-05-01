@@ -61,3 +61,6 @@ gem 'omniauth'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
+
+#devise
+gem 'devise'
