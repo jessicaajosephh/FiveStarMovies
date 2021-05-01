@@ -1,3 +1,4 @@
+<%= image_tag @movie.image.url(:medium) %>
 <h1><%=@movie.title%></h1>
 <h4>Published by: <%=link_to @movie.user.username, user_path(@movie.user)%> </h4>
 <h3>Genre: <%= @movie.genre.try(:name) %></h3>
