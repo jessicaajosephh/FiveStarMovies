@@ -3,6 +3,7 @@
 <h3>Genre: <%= @movie.genre.try(:name) %></h3>
 <% if @movie.user == current_user %>
   <h4><%= link_to "Edit Movie", edit_movie_path(@movie)%>
+  <h4><%= link_to "Delete Movie", movie_path(@movie), :method => :delete %>
 <% end %>
 
 <div>Movie Description: <%= @movie.description%></div>
@@ -18,3 +19,5 @@
   <li><strong><%= r.user.username%></strong> says "<%= link_to r.content, movie_review_path(@movie, r)%>" and gave it a rating of <%= r.rating %> at <%= r.updated_at.strftime("%I:%M %p on %m/%d/%Y")%></li>
   <% end %>
 <% end %>
+
+<h4><%= link_to 'Back', movies_path, class: "btn btn-info"  %></h4>

@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     before_action :redirect_if_not_logged_in 
     before_action :set_review, only: [:show, :edit, :update]
-    before_action :redirect_if_not_authorized, only: [:edit, :update]
+    before_action :redirect_if_not_authorized, only: [:edit, :update, :destroy]
 
     def index 
         if params[:movie_id] && @movie = Movie.find_by_id(params[:movie_id])
@@ -43,6 +43,12 @@ class ReviewsController < ApplicationController
             render :edit 
         end
     end
+
+    # def destroy 
+    #     @review = Review.find_by(id: params[:id])
+    #     @review.destroy
+    #     redirect_to @movie
+    # end
 
     private 
 
