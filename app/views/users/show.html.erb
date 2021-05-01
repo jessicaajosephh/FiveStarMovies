@@ -1,4 +1,4 @@
-<h1> Welcome <%= @user.username%> </h1>
+<h1><%= @user.username%>'s Movies! </h1>
 
 <% if @user.movies.empty? %>
   <h2> You haven't created any movie reviews yet, create one <%= link_to "here", new_movie_path%> now!</h2>
@@ -7,3 +7,5 @@
 <%= render partial: "movies/movies", locals: {movies: @user.movies}%>
 
 <% end %>
+
+<h4><%= link_to 'Back', movies_path, class: "btn btn-info"  %></h4>
