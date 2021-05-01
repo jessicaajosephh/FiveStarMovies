@@ -12,6 +12,10 @@ class Movie < ApplicationRecord
 
     scope :highest_rated, -> { order(:rating_desc)}
     
+    # def self.filter(params)
+    #     where("genre_id = ?", params)
+    # end
+    
     def self.search(params)
         left_joins(:reviews).where("LOWER(movies.title) LIKE :search OR LOWER(movies.description) LIKE :search OR LOWER(reviews.content) LIKE :search ", search: "%#{params}%")
     end
