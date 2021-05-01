@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root "sessions#home"
 
-  get '/genres' => 'genres#index'
-
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 
@@ -13,7 +11,7 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
-  resources :genres
+  resources :genres, only: [:index, :show]
   resources :reviews
   resources :users do 
     resources :movies, only: [:new, :create, :index]
