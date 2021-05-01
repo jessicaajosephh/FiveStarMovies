@@ -1,5 +1,10 @@
 <h1><%= index_header %></h1>
 
+<%= form_tag("/movies", method: 'get') do  %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+<% end %>
 
 <% if @movies.empty? %>
   <h2> You haven't created any movie reviews yet, create one <%= link_to "here", new_movie_path%> now!</h2>

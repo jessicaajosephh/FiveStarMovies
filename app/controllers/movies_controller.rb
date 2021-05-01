@@ -27,6 +27,9 @@ class MoviesController < ApplicationController
             @error = "That user doesn't exist in our database!" if params[:user_id]
             @movies = Movie.all.highest_rated  
         end
+        if  params[:q] && !params[:q].empty?
+            @movies = @movies.search(params[:q].downcase)
+        end
     end
 
     def show 
