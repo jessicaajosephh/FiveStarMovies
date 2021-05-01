@@ -62,5 +62,5 @@ gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
-#devise
-gem 'devise'
+#paperclip for images
+gem 'paperclip', git: 'https://github.com/sd/paperclip', branch: 'remove-mimemagic'
