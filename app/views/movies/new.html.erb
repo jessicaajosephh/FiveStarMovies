@@ -2,7 +2,7 @@
 
 <%= render partial: "layouts/errors", locals: {object: @movie}%>
 
-<%= form_for(@movie) do |f| %>
+<%= form_for @movie, html: { multipart: true } do |f| %>
 
   <%= f.label "Choose a genre:" %>
   <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true%>
@@ -32,6 +32,10 @@
   <br>
   <%= f.label :rating %>
   <%= f.text_field :rating %>
+  <br>
+  <br>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
   <br>
   <br>
   <%= f.submit %>
