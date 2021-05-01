@@ -6,5 +6,5 @@ class User < ApplicationRecord
     has_many :reviewed_movies, through: :reviews, source: :movie 
     has_many :genres, through: :movies 
 
-    validates :username, :email, presence: true
+    validates :username, :email, presence: true, uniqueness: true
 end
