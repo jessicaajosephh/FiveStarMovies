@@ -1,5 +1,5 @@
 <h1><%=@movie.title%></h1>
-<h4>Published by: <%=@movie.user.username%> </h4>
+<h4>Published by: <%=link_to @movie.user.username, user_path(@movie.user)%> </h4>
 <h3>Genre: <%= @movie.genre.try(:name) %></h3>
 <% if @movie.user == current_user %>
   <h4><%= link_to "Edit Movie", edit_movie_path(@movie)%>
