@@ -1,6 +1,13 @@
+<div class="row">
 <ul>
 <% movies.each do |m|%>
-  <td><%= image_tag m.image.url(:medium) %>
-  <li><%= link_to m.title, movie_path(m) %> - <%= m.rating%> </li>
+  <div class="col-sm-6 col-md-3">
+     <div class="thumbnail">
+        <%= link_to (image_tag m.image.url(:medium), class: 'image'), movie_path(m) %>
+        <%= link_to m.title, movie_path(m) %> 
+     </div>
+  </div>
+  <%# link_to m.title, movie_path(m) %>  <%# m.rating%> 
 <% end %>
 </ul>
+</div>
