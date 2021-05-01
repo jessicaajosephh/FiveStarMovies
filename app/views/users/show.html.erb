@@ -4,8 +4,6 @@
   <h2> You haven't created any movie reviews yet, create one <%= link_to "here", new_movie_path%> now!</h2>
 <% else %>
 
-<h2> Your Movies: </h2>
-
 <%= render partial: "movies/movies", locals: {movies: @user.movies}%>
 
 <% end %>
