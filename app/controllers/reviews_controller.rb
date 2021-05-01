@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
     before_action :redirect_if_not_logged_in 
+    before_action :set_review, only: [:show, :edit, :update]
+    before_action :redirect_if_not_authorized, only: [:edit, :update]
 
     def index 
         if params[:movie_id] && @movie = Movie.find_by_id(params[:movie_id])
@@ -28,18 +30,13 @@ class ReviewsController < ApplicationController
         end
     end
 
-    def show 
-        @review = Review.find_by(id: params[:id])
+    def show
     end
 
     def edit 
-        @review = Review.find_by(id: params[:id])
-        redirect_to reviews_path if !@review || @review.user != current_user
     end
 
     def update 
-        @review = Review.find_by(id: params[:id])
-        redirect_to reviews_path if !@review || @review.user != current_user
         if @review.update(review_params)
             redirect_to review_path(@review)
         else
@@ -51,6 +48,18 @@ class ReviewsController < ApplicationController
 
     def review_params
         params.require(:review).permit(:content, :rating, :movie_id)
+    end
+
+    def set_review
+        @review = Review.find_by(id: params[:id])
+        if !@review
+            flash[:message] = "Review was not found"
+            redirect_to reviews_path 
+        end
+    end
+
+    def redirect_if_not_authorized
+        redirect_to reviews_path if @review.user != current_user
     end
 
 end
