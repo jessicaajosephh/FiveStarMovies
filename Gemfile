@@ -64,3 +64,6 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 #paperclip for images
 gem 'paperclip', git: 'https://github.com/sd/paperclip', branch: 'remove-mimemagic'
+
+#bootstrap
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
