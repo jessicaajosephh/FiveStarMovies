@@ -1,5 +1,6 @@
 <ul>
 <% movies.each do |m|%>
+  <td><%= image_tag m.image.url(:medium) %>
   <li><%= link_to m.title, movie_path(m) %> - <%= m.rating%> </li>
 <% end %>
 </ul>
