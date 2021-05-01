@@ -1,18 +1,10 @@
-<% if @user %>
-  <h1><%= @user.username %>'s Movies:</h1>
-<% else %>
-  <h1> All Movies </h1>
-<% end %>
+<h1><%= index_header %></h1>
+
 
 <% if @movies.empty? %>
   <h2> You haven't created any movie reviews yet, create one <%= link_to "here", new_movie_path%> now!</h2>
 <% else %>
 
-
-<ul>
-<% @movies.each do |m|%>
-  <li><%= link_to m.title, movie_path(m) %> - <%= m.rating%> </li>
-<% end %>
-</ul>
+<%= render partial: "movies", locals: {movies: @movies}%>
 
 <% end %>

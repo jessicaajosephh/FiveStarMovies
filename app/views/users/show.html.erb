@@ -5,10 +5,7 @@
 <% else %>
 
 <h2> Your Movies: </h2>
-<ul>
-  <% @user.movies.each do |m| %>
-    <li><%= link_to m.title, movie_path(m) %></li>
-  <% end %>
-</ul>
+
+<%= render partial: "movies/movies", locals: {movies: @user.movies}%>
 
 <% end %>
