@@ -17,17 +17,33 @@
 @import "bootstrap";
 
 body {
-    background: #AA4847;
+    background: #90AFC5;
 }
 
 .review_title {
     margin: 0 0 20px 0;
 }
 
-.reviews {
-    padding: 15px 0;
-    border-bottom: 1px solid #EAEAEA;
-    .star-rating{
-        padding-bottom: 8px;
-    }
+.container {
+    background: url(background.jpg);
+    margin-top: 10%;
+    
 }
+
+.welcome_title {
+    color: #white;
+    border: 2px #869089;
+    outline-style: inset;
+    outline-color: #white;
+    outline-width: medium;
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    font-size: 300px;
+
+
+  }
+
+  
