@@ -2,41 +2,6 @@
 
 <%= render partial: "layouts/errors", locals: {object: @movie}%>
 
-<%= form_for @movie, html: { multipart: true } do |f| %>
+<%= render partial: "form", locals: {movies: @movies}%>
 
-  <%= f.label "Choose a genre:" %>
-  <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true%>
-
-  <p>Or create a new genre:
-  <%= f.fields_for :genre do |g| %>
-    <%= g.text_field :name %>
-  <% end %>
-  </p>
-  <br>
-  <br>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br>
-  <br>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <br>
-  <br>
-  <%= f.label :movie_length %>
-  <%= f.text_field :movie_length %>
-  <br>
-  <br>
-  <%= f.label :director %>
-  <%= f.text_field :director %>
-  <br>
-  <br>
-  <%= f.label :rating %>
-  <%= f.text_field :rating %>
-  <br>
-  <br>
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-  <br>
-  <br>
-  <%= f.submit %>
-<% end %>
+<h4><%= link_to 'Back', movie_path(@movie), class: "btn btn-info"  %></h4>

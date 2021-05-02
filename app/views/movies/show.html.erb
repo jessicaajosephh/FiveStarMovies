@@ -36,6 +36,10 @@
                   <td><%= @movie.rating%></td>
                 </tr>
                 <br>
+                <tr>
+                  <td><strong>Genre:</strong></td>
+                  <td><%= @movie.genre.name%></td>
+                </tr>
               </tbody>
             </table>
             <% if @movie.user == current_user %>

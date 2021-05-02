@@ -20,7 +20,7 @@ class Movie < ApplicationRecord
     # end
     
     def self.search(params)
-        left_joins(:reviews).where("LOWER(movies.title) LIKE :search OR LOWER(movies.description) LIKE :search OR LOWER(reviews.content) LIKE :search ", search: "%#{params}%")
+        where("LOWER(movies.title) LIKE :search", search: "%#{params}%")
     end
 
     def genre_attributes=(attr)

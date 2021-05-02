@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
     def create 
         @review = current_user.reviews.build(review_params)
         if @review.save 
-            redirect_to reviews_path
+            redirect_to review_path(@review)
         else
             render :new
         end
@@ -62,10 +62,6 @@ class ReviewsController < ApplicationController
             flash[:message] = "Review was not found"
             redirect_to reviews_path 
         end
-    end
-
-    def set_movie
-        @movie = Review.find_by(id: params[:id])
     end
 
     def redirect_if_not_authorized

@@ -1,6 +1,5 @@
 <% if @movie %>
   <h1>Reviews for <%= @movie.title %></h1>
-  <h4><%= link_to 'Back', movie_path(@movie), class: "btn btn-info"  %></h4>
 <% else %>
   <h1>All Reviews</h1>
 <% end %>
@@ -10,3 +9,5 @@
   <li><%= r.user.username%> says "<%= r.content%>" about this movie: <strong><%= link_to r.movie.title, movie_path(r.movie_id) %></strong> and gave it a rating of <%= r.rating %></li>
 <% end %>
 </ul>
+
+<h4><%= link_to 'Back', movie_path(@movie), class: "btn btn-info"  %></h4>
