@@ -44,20 +44,21 @@
             <% end %>
           </div>
       </div>
+        <div class="col-md-7 col-md-offset-1">
+          <h1 class="review_title"><%= @movie.title %></h1>
+          <p><%= @movie.description %></p>
+            <h4> Most recent Reviews:</h4>
+            <% @movie.reviews.order(updated_at: :desc).limit(5).each do |r|%>
+            <li><strong><%= r.user.username%></strong> says "<%= link_to r.content, movie_review_path(@movie, r)%>" and gave it a rating of <%= r.rating %> at <%= r.updated_at.strftime("%I:%M %p on %m/%d/%Y")%></li>
+            <% end %>
+            <br>
+            <%= link_to 'See all reviews', movie_reviews_path(@movie) %><br>
+            <%= link_to 'Add a review', new_movie_review_path(@movie) %>
+        </div>
     </div>
   </div>
 </div>
 
 
 
-<h4> Most recent Reviews:</h4>
-  <% @movie.reviews.order(updated_at: :desc).limit(5).each do |r|%>
-  <li><strong><%= r.user.username%></strong> says "<%= link_to r.content, movie_review_path(@movie, r)%>" and gave it a rating of <%= r.rating %> at <%= r.updated_at.strftime("%I:%M %p on %m/%d/%Y")%></li>
-  <% end %>
-  <br>
-  <%= link_to 'See all reviews', movie_reviews_path(@movie) %><br>
-<% if !@movie.reviews.empty? %>
-  <%= link_to 'Add a review', new_movie_review_path(@movie) %>
-<% end %>
-
-<h4><%= link_to 'Back', movies_path, class: "btn btn-info"  %></h4>
+<h4><%= link_to 'Back', movies_path, class: "btn btn-danger"  %></h4>

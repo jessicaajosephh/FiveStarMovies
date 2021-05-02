@@ -1,6 +1,6 @@
 <% if @movie %>
   <h1>Reviews for <%= @movie.title %></h1>
-  <h4><%= link_to 'Back', movies_path, class: "btn btn-info"  %></h4>
+  <h4><%= link_to 'Back', movie_path(@movie), class: "btn btn-info"  %></h4>
 <% else %>
   <h1>All Reviews</h1>
 <% end %>
