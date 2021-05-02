@@ -1,24 +1,18 @@
-# README
+# Five Star Movies
+Ruby on Rails web application where a user can create an account to review movies and view other users movie reviews
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
+Fork and clone the [repo](https://github.com/jessicaajosephh/FiveStarMovies). Once the repo is cloned, run ``bundle install`` to install all the gems required for the applications.
+After gems are installed, run ``rake db:migrate`` to set up your connection with the database. 
+Run the command ``rails s`` in the console to start up the program.
+Then, open up a browser and navigate to http://localhost:3000/
 
-Things you may want to cover:
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* Ruby version
+Please make sure to update tests as appropriate.
 
-* System dependencies
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
