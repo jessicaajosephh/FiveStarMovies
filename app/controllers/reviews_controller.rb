@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
     def create 
         @review = current_user.reviews.build(review_params)
         if @review.save 
-            redirect_to reviews_path
+            redirect_to movies_path
         else
             render :new
         end
@@ -45,9 +45,8 @@ class ReviewsController < ApplicationController
     end
 
     # def destroy 
-    #     @review = Review.find_by(id: params[:id])
     #     @review.destroy
-    #     redirect_to @movie
+    #     redirect_to movie_path
     # end
 
     private 

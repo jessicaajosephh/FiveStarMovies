@@ -2,8 +2,8 @@
 
 <% if @review.user == current_user %>
   <%= link_to "Edit Review", edit_review_path(@review)%>
-  <%# link_to "Delete Review", movies_path(@movie), :method => :delete %>
+  <%# link_to "Delete Review", movie_path, :method => :delete %>
 <% end %>
 
 
-<h4>Read the review here: <%= link_to @review.movie.title, movie_path(@review.movie_id) %></h4>
+<h4>View the movie here: <%= link_to @review.movie.title, movie_path(@review.movie_id) %></h4>
