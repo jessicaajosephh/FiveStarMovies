@@ -13,7 +13,7 @@ class Movie < ApplicationRecord
     validates :director, presence: true, length: { in: 2..40 }
     validates :rating, presence: true
 
-    scope :highest_rated, -> { order(:rating_desc)}
+    scope :alpha, -> { order(:title)}
     
     # def self.filter(params)
     #     where("genre_id = ?", params)
