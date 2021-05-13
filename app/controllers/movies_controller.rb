@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
     before_action :redirect_if_not_logged_in 
     before_action :set_movie, only: [:show, :edit, :update, :destroy]
+    before_action :redirect_if_not_movie_author, only: [:edit, :update]
 
     def new
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
@@ -37,12 +38,10 @@ class MoviesController < ApplicationController
     end
 
     def edit 
-        redirect_to movies_path if !@movie || @movie.user != current_user
         @movie.build_genre if !@movie.genre
     end
 
     def update 
-        redirect_to movies_path if !@movie || @movie.user != current_user
         if @movie.update(movie_params)
             redirect_to movie_path(@movie)
         else
@@ -63,6 +62,10 @@ class MoviesController < ApplicationController
 
     def set_movie
         @movie = Movie.find_by_id(params[:id])
+    end
+
+    def redirect_if_not_movie_author
+        redirect_to movies_path if !@movie || @movie.user != current_user
     end
     
 end
