@@ -1,8 +1,4 @@
-<% if @movie %>
-  <h1>Reviews for <%= @movie.title %></h1>
-<% else %>
-  <h1>All Reviews</h1>
-<% end %>
+<h1><%= review_index_header %></h1>
 
 <ul>
 <% @reviews.each do |r|%>
